@@ -10,11 +10,11 @@ public class CreatureLife {
 
 	private Creature creature;
 
-	private Collection<LifeRule> bioRules;
+	private Collection<LifeRule> lifeRules;
 
-	public CreatureLife(final Creature creature, final LifeRules bioRules) {
+	public CreatureLife(final Creature creature, final LifeRules lifeRules) {
 		this.creature = creature;
-		this.bioRules = bioRules.createLifeRules(creature);
+		this.lifeRules = lifeRules.createLifeRules(creature);
 
 	}
 
@@ -23,7 +23,7 @@ public class CreatureLife {
 	}
 
 	public boolean isDeceasing() {
-		for (LifeRule bioRule : bioRules) {
+		for (LifeRule bioRule : lifeRules) {
 			if (!bioRule.applyAndCheckRule())
 				return true;
 		}
